@@ -16,7 +16,7 @@ const ReduxTest = () => {
 
       let userVar: any;
 
-      if (!dbResponse) {
+      if (dbResponse) {
         userVar = dbResponse;
       } else {
         userVar = {
