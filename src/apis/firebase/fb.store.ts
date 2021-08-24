@@ -2,27 +2,42 @@ import fb from './fb';
 
 const db = fb.firestore();
 
-export const manageUserDB = async (username: string, email: string) => {
+export const signInUserDB = async (username: string, email: string) => {
   const findResponse = await db
     .collection('users')
     .where('email', '==', email)
     .get();
 
-  let result: any;
+  let userVar: any;
 
   if (!findResponse.empty) {
     findResponse.forEach((doc) => {
-      result = doc.data();
+      userVar = {
+        id: doc.id,
+        ...doc.data(),
+      };
     });
   } else {
-    db.collection('users').add({
+    const addResponse = await db.collection('users').add({
       username,
       email,
       victims: [],
       postings: [],
     });
-    result = null;
+
+    console.log(addResponse.id);
+    userVar = {
+      id: addResponse.id,
+      username,
+      email,
+      victims: [],
+      postings: [],
+    };
   }
 
-  return result;
+  return userVar;
+};
+
+export const deleteAccountDB = async (id: string) => {
+  db.collection('users').doc(id).delete();
 };
