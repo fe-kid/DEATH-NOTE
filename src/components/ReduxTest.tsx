@@ -1,7 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { ActionType, useTypedSelector as useSelector } from '../state/store';
-import { googleSignIn, googleSignOut } from '../apis/firebase/fb.auth';
+import { googleSignIn } from '../apis/firebase/fb.auth';
 import { useEffect } from 'react';
+import { manageUserDB } from '../apis/firebase/fb.store';
 
 const ReduxTest = () => {
   const { authUser } = useSelector((state) => state);
@@ -9,15 +10,26 @@ const ReduxTest = () => {
 
   const signInHandler = async () => {
     const user = await googleSignIn();
+
     if (user) {
-      dispatch({
-        type: ActionType.SIGN_IN,
-        payload: {
+      const dbResponse = await manageUserDB(user.displayName!, user.email!);
+
+      let userVar: any;
+
+      if (!dbResponse) {
+        userVar = dbResponse;
+      } else {
+        userVar = {
           username: user?.displayName,
           email: user.email,
-          victims: [{ name: 'dude', img: 'no image' }],
-          postings: ['p1', 'p2'],
-        },
+          victims: [],
+          postings: [],
+        };
+      }
+
+      dispatch({
+        type: ActionType.SIGN_IN,
+        payload: userVar,
       });
     }
   };
@@ -34,7 +46,7 @@ const ReduxTest = () => {
     <>
       <h1>Redux Test</h1>
       {!authUser && <button onClick={signInHandler}>Sign In</button>}
-      {authUser && 'user exists'}
+      {authUser && <p>{authUser.email}</p>}
       {authUser && <button onClick={signOutHandler}>Sign Out</button>}
     </>
   );
