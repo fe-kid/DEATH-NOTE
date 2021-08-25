@@ -7,12 +7,12 @@ import GameSelection from './pages/GameSelectino';
 import GamePlaying from './pages/GamePlaying';
 import Social from './pages/Social';
 import Ranks from './pages/Ranks';
-import ReduxTest from './components/ReduxTest';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <ReduxTest />
+      <Header />
       <Router>
         <Switch>
           <Route path="/" exact>
