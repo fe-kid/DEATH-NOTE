@@ -2,11 +2,10 @@ import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../state/store';
 import Home from '../pages/Home';
-import SignIn from '../pages/SignIn';
-import GameSelection from '../pages/GameSelectino';
+import GameStart from '../pages/GameStart';
 import GamePlaying from '../pages/GamePlaying';
-import Social from '../pages/Social';
-import Ranks from '../pages/Ranks';
+import Community from '../pages/Community';
+import Ranking from '../pages/Ranking';
 import Header from '../components/Header';
 import GlobalStyle from '../styles/globalStyle';
 
@@ -17,12 +16,10 @@ const App = () => {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/sign-in" component={SignIn} />
-        <Route path="/game-selection" component={GameSelection} />
+        <Route path="/game-start" component={GameStart} />
         <Route path="/game-playing" component={GamePlaying} />
-        <Route path="/social" component={Social} />
-        <Route path="/game-selection" component={GameSelection} />
-        <Route path="/ranks" component={Ranks} />
+        <Route path="/community" component={Community} />
+        <Route path="/ranking" component={Ranking} />
       </Switch>
     </Provider>
   );

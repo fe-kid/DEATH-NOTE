@@ -53,6 +53,16 @@ const GlobalStyle = createGlobalStyle`
   *::after {
     font-family: 'Special Elite', cursive, serif;
   }
+
+  body {
+    background-color: #202020;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
 `;
 
 export default GlobalStyle;

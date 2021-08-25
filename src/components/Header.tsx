@@ -27,6 +27,7 @@ const StyledHeader = styled.header`
     width: 100px;
     padding: 5px 0;
     font-size: 16px;
+    cursor: pointer;
   }
   span {
     cursor: pointer;
