@@ -21,6 +21,7 @@ const StyledVictimList = styled.ul`
     p {
       font-size: 20px;
       color: #000;
+      padding: 30px;
     }
   }
 `;

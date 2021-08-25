@@ -1,17 +1,23 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { User } from '../types';
 import styled from 'styled-components';
 import VictimList from './VictimList';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
-const StyledUserItem = styled.div`
-  background-color: #555;
-  color: #ccc;
+const StyledUserItem = styled.div<{ isIdSame: boolean }>`
+  background-color: ${(props) => (props.isIdSame ? '#888' : '#555')};
+  border: ${(props) => (props.isIdSame ? '5px solid #ddd' : 'none')};
+  color: ${(props) => (props.isIdSame ? '#222' : '#ccc')};
+  border-radius: 20px;
+  box-sizing: content-box;
   position: relative;
   padding: 20px;
-  margin: 10px;
+  margin: 30px 20px;
   display: flex;
   & > span {
     background-color: #222;
+    color: #ccc;
     display: block;
     width: 50px;
     height: 50px;
@@ -33,13 +39,21 @@ const StyledUserItem = styled.div`
 
 const UserItem: React.FC<{ user: User; idx: number }> = ({ user, idx }) => {
   const [showVictims, setShowVictims] = useState(false);
+  const [isIdSame, setIsIdSame] = useState(false);
+  const authState = useTypedSelector((state) => state.auth);
 
   const toggleShowVictimHandler = () => {
     setShowVictims((prev) => !prev);
   };
 
+  useEffect(() => {
+    if (authState) {
+      setIsIdSame(user.id === authState.id);
+    }
+  }, [authState]);
+
   return (
-    <StyledUserItem>
+    <StyledUserItem isIdSame={isIdSame}>
       <span>{idx}</span>
       <div>
         <h3>{`name : ${user.username}`}</h3>
