@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './state/store';
 import Home from './pages/Home';
@@ -13,28 +13,15 @@ const App = () => {
   return (
     <Provider store={store}>
       <Header />
-      <Router>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/sign-in">
-            <SignIn />
-          </Route>
-          <Route path="/game-selection">
-            <GameSelection />
-          </Route>
-          <Route path="/game-playing">
-            <GamePlaying />
-          </Route>
-          <Route path="/social">
-            <Social />
-          </Route>
-          <Route path="/ranks">
-            <Ranks />
-          </Route>
-        </Switch>
-      </Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/sign-in" component={SignIn} />
+        <Route path="/game-selection" component={GameSelection} />
+        <Route path="/game-playing" component={GamePlaying} />
+        <Route path="/social" component={Social} />
+        <Route path="/game-selection" component={GameSelection} />
+        <Route path="/ranks" component={Ranks} />
+      </Switch>
     </Provider>
   );
 };
