@@ -19,7 +19,7 @@ const StyledUserItem = styled.div`
     text-align: center;
     line-height: 50px;
   }
-  div {
+  & > div {
     margin-left: 30px;
     h3 {
       font-size: 24px;
