@@ -11,3 +11,9 @@ export interface User {
   victims: Victim[];
   postings: string[];
 }
+
+export interface CurrentCriminal {
+  address: string;
+  name: string;
+  img: string;
+}

@@ -1,5 +1,98 @@
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import styled from 'styled-components';
+import DeadList from '../components/DeadList';
+import { CurrentCriminal, Victim } from '../types';
+import getRandomUser from '../apis/randomNews/randomUser';
+import CriminalNews from '../components/CriminalNews';
+import createRandomCrime from '../apis/randomNews/randomCrime';
+import KillingForm from '../components/KillingForm';
+
+const StyledKilling = styled.div`
+  position: absolute;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+`;
+
 const Killing = () => {
-  return <h1>Killing</h1>;
+  const [enteredText, setEnteredText] = useState('');
+  const [deads, setDeads] = useState<Victim[]>([]);
+  const [currentCriminal, setCurrentCriminal] = useState<CurrentCriminal>();
+  const [mistake, setMistake] = useState(false);
+  const [crime, setCrime] = useState('');
+
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    setEnteredText(e.target.value);
+  };
+
+  const onSubmitHandler = (e: FormEvent) => {
+    e.preventDefault();
+
+    if (currentCriminal && currentCriminal.name === enteredText) {
+      addDeadHandler({
+        name: currentCriminal.name,
+        img: currentCriminal.img,
+      });
+      setCriminalHandler();
+    } else {
+      setMistake(true);
+    }
+
+    setEnteredText('');
+  };
+
+  const setCriminalHandler = async () => {
+    const criminal = await getRandomUser();
+    setCurrentCriminal(criminal);
+    const crime = createRandomCrime();
+    setCrime(crime);
+  };
+
+  useEffect(() => {
+    setCriminalHandler();
+  }, []);
+
+  useEffect(() => {
+    let timerId: ReturnType<typeof setTimeout>;
+
+    if (mistake) {
+      timerId = setTimeout(() => {
+        setMistake(false);
+      }, 2000);
+    }
+
+    return () => {
+      clearTimeout(timerId);
+    };
+  }, [mistake]);
+
+  const addDeadHandler = (dead: Victim) => {
+    setDeads((prev) => {
+      return [...prev, dead];
+    });
+  };
+
+  return (
+    <StyledKilling>
+      <CriminalNews
+        criminal={currentCriminal}
+        mistake={mistake}
+        crime={crime}
+      />
+      <DeadList deads={deads} />
+      <KillingForm
+        onSubmit={onSubmitHandler}
+        onChange={onChangeHandler}
+        onSkip={setCriminalHandler}
+        text={enteredText}
+      />
+    </StyledKilling>
+  );
 };
 
 export default Killing;
