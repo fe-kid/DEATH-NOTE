@@ -17,7 +17,7 @@ const StyledHome = styled.div`
 const Home = () => {
   return (
     <StyledHome>
-      <Link to="/game-start">
+      <Link to="/killing">
         <SelectionItem
           text="Do Your Job"
           img="https://www.firstpost.com/wp-content/uploads/2017/08/13245470_1129092717162553_622982228854157952_n-Copy-2.jpg"

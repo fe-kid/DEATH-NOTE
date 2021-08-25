@@ -10,4 +10,22 @@ interface SignOutAction {
   type: ActionType.SIGN_OUT;
 }
 
-export type Actions = SignInAction | SignOutAction;
+interface FetchRankingAction {
+  type: ActionType.FETCH_RANKING;
+}
+
+interface FetchRankingSuccessAction {
+  type: ActionType.FETCH_RANKING_SUCCESS;
+  payload: User[];
+}
+interface FetchRankingFailureAction {
+  type: ActionType.FETCH_RANKING_FAILURE;
+  payload: string;
+}
+
+export type Actions =
+  | SignInAction
+  | SignOutAction
+  | FetchRankingAction
+  | FetchRankingSuccessAction
+  | FetchRankingFailureAction;

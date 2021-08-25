@@ -1,5 +1,5 @@
 import { useActions } from '../hooks/useActions';
-import { useTypedSelector as useSelector } from '../hooks/useTypedSelector';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 import { googleSignIn } from '../apis/firebase/fb.auth';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -58,15 +58,15 @@ const StyledHeader = styled.header`
 /* -------------------------------------------------------------------------- */
 
 const Header = () => {
-  const authUser = useSelector((state) => state.auth);
-  const { signInAction, signOutAction, deleteAccountAction } = useActions();
+  const authUser = useTypedSelector((state) => state.auth);
+  const { signIn, signOut, deleteAccount } = useActions();
   const [showUserOption, setShowUserOption] = useState(false);
 
   const signInHandler = async () => {
     const user = await googleSignIn();
 
     if (user) {
-      signInAction(user.displayName!, user.email!);
+      signIn(user.displayName!, user.email!);
     }
   };
 
@@ -86,8 +86,8 @@ const Header = () => {
             <span onClick={userClickHandler}>{authUser.username}</span>
             {showUserOption && (
               <div>
-                <button onClick={signOutAction}>Sign Out</button>
-                <button onClick={deleteAccountAction.bind(null, authUser.id)}>
+                <button onClick={signOut}>Sign Out</button>
+                <button onClick={deleteAccount.bind(null, authUser.id)}>
                   Delete Account
                 </button>
               </div>

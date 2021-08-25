@@ -56,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: #202020;
+    color: #aaa;
   }
 
   html,
