@@ -1,15 +1,17 @@
 # Death Note App
 
-![screenshop 1]('./assets/screenshot1.png')
-![screenshop 2]('./assets/screenshot2.png')
+<div style={display: flex}>
+  <img width="400" alt="screenshot1" src="https://user-images.githubusercontent.com/72863748/131000451-86ae2015-d966-4aeb-a998-8a96e584799f.png">
+  <img width="400" alt="screenshot2" src="https://user-images.githubusercontent.com/72863748/131000458-37399251-c58e-4349-9460-59e9c09e44af.png">
+</div>
 
-### 기획 의도
+### 📓 기획 의도
 
 키라가 되어 흉악한 범죄자들을 응징하세요!<br/>
 다른 키라들과 순위를 두고 겨루거나 게시판에서 정의에 대해 토론을 벌일 수도 있습니다.<br/>
 비뚤어진 정의를 바로잡기 위한 일이라는 것을 기억하세요. 당신이 정의입니다.
 
-### 사용 기술
+### ⚙️ 사용 기술
 
 - 개발 언어 : TypeScript
 - 프론트엔드 라이브러리 : React.js
