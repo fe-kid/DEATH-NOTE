@@ -22,8 +22,8 @@ const KillingScoreButtons = () => {
 
   return (
     <StyledKillingScoreButtons>
-      <Link to="/DEATH_NOTE/killing-start">Retry</Link>
-      {authUser && <Link to="/DEATH_NOTE/ranking">Ranking</Link>}
+      <Link to="/DEATH-NOTE/killing-start">Retry</Link>
+      {authUser && <Link to="/DEATH-NOTE/ranking">Ranking</Link>}
     </StyledKillingScoreButtons>
   );
 };
