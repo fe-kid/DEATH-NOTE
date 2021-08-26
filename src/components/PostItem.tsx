@@ -3,6 +3,7 @@ import { Post } from '../types';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { useActions } from '../hooks/useActions';
 
 const StyledPostItem = styled.div`
   margin: 10px;
@@ -14,17 +15,28 @@ const StyledPostItem = styled.div`
 
 const PostItem: React.FC<{ post: Post }> = ({ post }) => {
   const [isIdSame, setIsIdSame] = useState(false);
-  const authState = useTypedSelector((state) => state.auth);
+  const auth = useTypedSelector((state) => state.auth);
+  const { deletePost } = useActions();
 
   useEffect(() => {
-    if (authState) {
-      setIsIdSame(post.id === authState.id);
+    if (auth) {
+      setIsIdSame(post.writtenUserId === auth.id);
     }
-  }, [authState]);
+  }, [auth]);
+
+  const deletePostHandler = () => {
+    deletePost(
+      post.id,
+      auth!.id,
+      auth!.postings.filter((posting) => {
+        return posting !== post.id;
+      })
+    );
+  };
 
   return (
     <StyledPostItem>
-      {isIdSame && 'my post'}
+      {isIdSame && <button onClick={deletePostHandler}>Delete</button>}
       <span>{post.writtenDate}</span>
       <span>{post.writtenUserName}</span>
       <p>{post.content}</p>

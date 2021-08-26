@@ -20,10 +20,6 @@ const Community = () => {
     fetchCommunity();
   }, []);
 
-  useEffect(() => {
-    fetchCommunity();
-  }, [auth]);
-
   return (
     <StyledCommunity>
       <h2>Community</h2>

@@ -11,12 +11,12 @@ const PostForm = () => {
 
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (enteredText.trim().length < 10) {
-      setWarning('Write at least 10 letters.');
+    if (enteredText.trim().length < 5) {
+      setWarning('Write at least 5 letters.');
       return;
     }
 
-    addPost(authUser!.username, authUser!.id, enteredText);
+    addPost(authUser!.username, authUser!.id, enteredText, authUser!.postings);
     setEnteredText('');
   };
 

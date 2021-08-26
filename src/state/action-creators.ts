@@ -103,12 +103,6 @@ export const fetchCommunity = () => {
         return { ...(doc.data() as Post), id: doc.id };
       });
 
-      console.log(
-        res.docs.map((doc) => {
-          return doc.data();
-        })
-      );
-
       dispatch({
         type: ActionType.FETCH_COMMUNITY_SUCCESS,
         payload: postList,
@@ -122,7 +116,12 @@ export const fetchCommunity = () => {
   };
 };
 
-export const addPost = (username: string, userId: string, content: string) => {
+export const addPost = (
+  username: string,
+  userId: string,
+  content: string,
+  userPostings: string[]
+) => {
   return async (dispatch: Dispatch) => {
     try {
       const postObjForDB = {
@@ -133,6 +132,11 @@ export const addPost = (username: string, userId: string, content: string) => {
       };
 
       const res = await db.collection('posts').add(postObjForDB);
+      db.collection('users')
+        .doc(userId)
+        .update({
+          postings: [...userPostings, res.id],
+        });
 
       const newPostObj = {
         ...postObjForDB,
@@ -140,8 +144,28 @@ export const addPost = (username: string, userId: string, content: string) => {
       };
 
       dispatch({ type: ActionType.ADD_POST, payload: newPostObj });
-
       dispatch({ type: ActionType.ADD_USER_POSTING, payload: res.id });
+    } catch (err) {
+      // 에러 처리 업데이트 예정
+      console.log(err);
+    }
+  };
+};
+
+export const deletePost = (
+  postId: string,
+  userId: string,
+  updatedPostings: string[]
+) => {
+  return (dispatch: Dispatch) => {
+    try {
+      db.collection('posts').doc(postId).delete();
+      db.collection('users').doc(userId).update({
+        postings: updatedPostings,
+      });
+
+      dispatch({ type: ActionType.DELETE_USER_POSTING, payload: postId });
+      dispatch({ type: ActionType.DELETE_POST, payload: postId });
     } catch (err) {
       // 에러 처리 업데이트 예정
       console.log(err);

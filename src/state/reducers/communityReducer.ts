@@ -31,6 +31,12 @@ export const communityReducer = (
         error: null,
         data: [...state.data, action.payload],
       };
+    case ActionType.DELETE_POST:
+      return {
+        loading: false,
+        error: null,
+        data: state.data.filter((post) => post.id !== action.payload),
+      };
     default:
       return state;
   }
