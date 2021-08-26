@@ -28,7 +28,7 @@ const KillingScoreText: React.FC<{ deads: Victim[] }> = ({ deads }) => {
       {deads.length > 1 && (
         <p>
           <span>Well done.</span>
-          You punished <b>${deads.length}</b> criminals for justice!
+          You punished <b>{deads.length}</b> criminals for justice!
         </p>
       )}
     </StyledKillingScoreText>

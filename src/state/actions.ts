@@ -1,4 +1,4 @@
-import { User } from '../types';
+import { User, Victim } from '../types';
 import { ActionType } from './action-types';
 
 interface SignInAction {
@@ -13,6 +13,11 @@ interface SignOutAction {
 interface UpdateKilledCountAction {
   type: ActionType.UPDATE_KILLED_COUNT;
   payload: number;
+}
+
+interface UpdateVictimsAction {
+  type: ActionType.UPDATE_VICTIMS;
+  payload: Victim[];
 }
 
 interface FetchRankingAction {
@@ -32,6 +37,7 @@ export type Actions =
   | SignInAction
   | SignOutAction
   | UpdateKilledCountAction
+  | UpdateVictimsAction
   | FetchRankingAction
   | FetchRankingSuccessAction
   | FetchRankingFailureAction;

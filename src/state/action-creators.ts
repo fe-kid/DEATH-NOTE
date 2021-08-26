@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import fb from '../apis/firebase/fb';
-import { User } from '../types';
+import { User, Victim } from '../types';
 import { ActionType } from './action-types';
 
 const db = fb.firestore();
@@ -67,6 +67,20 @@ export const updateKilledCount = (id: string, killedCount: number) => {
         killedCount: killedCount,
       });
       dispatch({ type: ActionType.UPDATE_KILLED_COUNT, payload: killedCount });
+    } catch (err) {
+      // 에러 처리 업데이트 예정
+      console.log(err);
+    }
+  };
+};
+
+export const updateVictims = (id: string, victims: Victim[]) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      db.collection('users').doc(id).update({
+        victims: victims,
+      });
+      dispatch({ type: ActionType.UPDATE_VICTIMS, payload: victims });
     } catch (err) {
       // 에러 처리 업데이트 예정
       console.log(err);

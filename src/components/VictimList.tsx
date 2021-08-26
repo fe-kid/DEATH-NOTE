@@ -18,6 +18,7 @@ const StyledVictimList = styled.ul`
   div {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     p {
       font-size: 20px;
       color: #000;
@@ -29,9 +30,9 @@ const StyledVictimList = styled.ul`
 const VictimList: React.FC<{ victims: Victim[] }> = ({ victims }) => {
   return (
     <StyledVictimList>
-      <h3>People killed by this Kira</h3>
+      <h3>Criminals punished by this Kira</h3>
       <div>
-        {victims.length === 0 && <p>Not killed yet</p>}
+        {victims.length === 0 && <p>Not punished yet</p>}
         {victims.map((victim) => {
           return <VictimItem key={victim.name} victim={victim} />;
         })}

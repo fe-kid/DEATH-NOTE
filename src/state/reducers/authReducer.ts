@@ -17,6 +17,8 @@ export const authReducer = (
       return null;
     case ActionType.UPDATE_KILLED_COUNT:
       return { ...state, killedCount: action.payload } as authUser;
+    case ActionType.UPDATE_VICTIMS:
+      return { ...state, victims: action.payload } as authUser;
     default:
       return state;
   }

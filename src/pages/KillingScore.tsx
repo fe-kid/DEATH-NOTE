@@ -31,17 +31,31 @@ interface StateType {
 
 const KillingScore = () => {
   const authUser = useTypedSelector((state) => state.auth);
-  const { updateKilledCount } = useActions();
+  const { updateKilledCount, updateVictims } = useActions();
   const [isNewRecord, setIsNewRecord] = useState(false);
   const location = useLocation<StateType>();
   const { deads } = location.state;
 
   useEffect(() => {
-    if (authUser && deads.length > authUser.killedCount) {
-      updateKilledCount(authUser.id, deads.length);
-      setIsNewRecord(true);
+    if (authUser) {
+      compareDeadlist();
+      if (authUser && deads.length > authUser.killedCount) {
+        updateKilledCount(authUser.id, deads.length);
+        setIsNewRecord(true);
+      }
     }
   }, [authUser]);
+
+  const compareDeadlist = () => {
+    const newVictimsArray = deads.filter((dead) => {
+      return !authUser!.victims.includes(dead);
+    });
+
+    if (newVictimsArray.length >= 1) {
+      const concatArray = authUser!.victims.concat(...newVictimsArray);
+      updateVictims(authUser!.id, concatArray);
+    }
+  };
 
   return (
     <StyledKillingScore>

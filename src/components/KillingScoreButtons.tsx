@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const StyledKillingScoreButtons = styled.div`
   display: flex;
@@ -17,10 +18,12 @@ const StyledKillingScoreButtons = styled.div`
 `;
 
 const KillingScoreButtons = () => {
+  const authUser = useTypedSelector((state) => state.auth);
+
   return (
     <StyledKillingScoreButtons>
-      <Link to="/killing-start">Do it again</Link>
-      <Link to="/ranking">Go to ranking</Link>
+      <Link to="/killing-start">Retry</Link>
+      {authUser && <Link to="/ranking">Ranking</Link>}
     </StyledKillingScoreButtons>
   );
 };

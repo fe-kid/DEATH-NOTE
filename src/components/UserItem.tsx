@@ -33,6 +33,8 @@ const StyledUserItem = styled.div<{ isIdSame: boolean }>`
     }
     span {
       font-size: 18px;
+      display: block;
+      margin-bottom: 10px;
     }
   }
 `;
@@ -56,11 +58,12 @@ const UserItem: React.FC<{ user: User; idx: number }> = ({ user, idx }) => {
     <StyledUserItem isIdSame={isIdSame}>
       <span>{idx}</span>
       <div>
-        <h3>{`name : ${user.username}`}</h3>
+        <h3>{`Name : ${user.username}`}</h3>
+        <span>{`Highest Score : ${user.killedCount}`}</span>
         <span
           onMouseOver={toggleShowVictimHandler}
           onMouseLeave={toggleShowVictimHandler}
-        >{`killed : ${user.killedCount}`}</span>
+        >{`Punished criminals : ${user.victims.length}`}</span>
       </div>
       {showVictims && <VictimList victims={user.victims} />}
     </StyledUserItem>
