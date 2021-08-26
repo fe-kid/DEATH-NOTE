@@ -10,6 +10,11 @@ interface SignOutAction {
   type: ActionType.SIGN_OUT;
 }
 
+interface UpdateKilledCountAction {
+  type: ActionType.UPDATE_KILLED_COUNT;
+  payload: number;
+}
+
 interface FetchRankingAction {
   type: ActionType.FETCH_RANKING;
 }
@@ -26,6 +31,7 @@ interface FetchRankingFailureAction {
 export type Actions =
   | SignInAction
   | SignOutAction
+  | UpdateKilledCountAction
   | FetchRankingAction
   | FetchRankingSuccessAction
   | FetchRankingFailureAction;

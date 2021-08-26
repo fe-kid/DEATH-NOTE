@@ -60,6 +60,20 @@ export const deleteAccount = (id: string) => {
   };
 };
 
+export const updateKilledCount = (id: string, killedCount: number) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      db.collection('users').doc(id).update({
+        killedCount: killedCount,
+      });
+      dispatch({ type: ActionType.UPDATE_KILLED_COUNT, payload: killedCount });
+    } catch (err) {
+      // 에러 처리 업데이트 예정
+      console.log(err);
+    }
+  };
+};
+
 export const FetchRanking = () => {
   return async (dispatch: Dispatch) => {
     dispatch({
