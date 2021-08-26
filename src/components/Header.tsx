@@ -1,9 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { googleSignIn } from '../apis/firebase/fb.auth';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const StyledHeader = styled.header`
   background-color: #333;
@@ -61,6 +62,14 @@ const Header = () => {
   const authUser = useTypedSelector((state) => state.auth);
   const { signIn, signOut, deleteAccount } = useActions();
   const [showUserOption, setShowUserOption] = useState(false);
+
+  useEffect(() => {
+    const sessionUsername = window.sessionStorage.getItem('username');
+    const sessionEmail = window.sessionStorage.getItem('email');
+    if (sessionUsername && sessionEmail) {
+      signIn(sessionUsername, sessionEmail);
+    }
+  }, []);
 
   const signInHandler = async () => {
     const user = await googleSignIn();

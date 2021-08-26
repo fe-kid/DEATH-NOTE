@@ -40,6 +40,9 @@ export const signIn = (username: string, email: string) => {
       };
     }
 
+    window.sessionStorage.setItem('username', userVar.username);
+    window.sessionStorage.setItem('email', userVar.email);
+
     dispatch({
       type: ActionType.SIGN_IN,
       payload: userVar,
@@ -49,6 +52,7 @@ export const signIn = (username: string, email: string) => {
 
 export const signOut = () => {
   return (dispatch: Dispatch) => {
+    window.sessionStorage.removeItem('user');
     dispatch({ type: ActionType.SIGN_OUT });
   };
 };
@@ -56,6 +60,7 @@ export const signOut = () => {
 export const deleteAccount = (id: string) => {
   return (dispatch: Dispatch) => {
     db.collection('users').doc(id).delete();
+    window.sessionStorage.removeItem('user');
     dispatch({ type: ActionType.SIGN_OUT });
   };
 };
