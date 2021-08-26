@@ -6,10 +6,37 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useActions } from '../hooks/useActions';
 
 const StyledPostItem = styled.div`
-  margin: 10px;
-  background-color: orange;
+  position: relative;
+  margin: 30px auto 0;
+  padding: 30px 20px 20px;
+  width: 80%;
+  max-width: 600px;
+  background-color: #333;
   span {
     display: block;
+    font-size: 26px;
+    margin-left: 5px;
+  }
+  p {
+    background-color: #222;
+    color: #fff;
+    word-wrap: break-word;
+    font-size: 20px;
+    letter-spacing: 2px;
+    line-break: 1.4;
+    margin-top: 20px;
+    padding: 20px;
+  }
+  button {
+    font-size: 24px;
+    font-family: monospace;
+    color: #fff;
+    background: none;
+    border: 2px solid #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    right: 24px;
   }
 `;
 
@@ -37,7 +64,6 @@ const PostItem: React.FC<{ post: Post }> = ({ post }) => {
   return (
     <StyledPostItem>
       {isIdSame && <button onClick={deletePostHandler}>Delete</button>}
-      <span>{post.writtenDate}</span>
       <span>{post.writtenUserName}</span>
       <p>{post.content}</p>
     </StyledPostItem>

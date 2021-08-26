@@ -125,7 +125,7 @@ export const addPost = (
   return async (dispatch: Dispatch) => {
     try {
       const postObjForDB = {
-        writtenDate: new Date().toLocaleString(),
+        writtenDate: new Date(),
         writtenUserName: username,
         writtenUserId: userId,
         content: content,

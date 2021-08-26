@@ -7,7 +7,18 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const StyledCommunity = styled.div`
-  background-color: red;
+  color: #fff;
+  & > div > p,
+  h2 {
+    text-align: center;
+    padding: 50px;
+  }
+  h2 {
+    font-size: 50px;
+  }
+  & > div > p {
+    font-size: 30px;
+  }
 `;
 
 const Community = () => {

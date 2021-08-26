@@ -22,6 +22,6 @@ export interface Post {
   id: string;
   writtenUserName: string;
   writtenUserId: string;
-  writtenDate: string;
+  writtenDate: any;
   content: string;
 }

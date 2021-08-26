@@ -29,7 +29,7 @@ export const communityReducer = (
       return {
         loading: false,
         error: null,
-        data: [...state.data, action.payload],
+        data: [action.payload, ...state.data],
       };
     case ActionType.DELETE_POST:
       return {

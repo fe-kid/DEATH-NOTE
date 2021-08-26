@@ -1,7 +1,32 @@
 import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
+import styled from 'styled-components';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+
+const StyledPostForm = styled.form`
+  margin-bottom: 40px;
+  & > * {
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 80%;
+    max-width: 600px;
+  }
+  textarea {
+    resize: none;
+    height: 180px;
+    font-size: 24px;
+    padding: 20px;
+    letter-spacing: 2px;
+    line-height: 1.5;
+  }
+  button {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px 0;
+  }
+`;
 
 const PostForm = () => {
   const [enteredText, setEnteredText] = useState('');
@@ -31,14 +56,14 @@ const PostForm = () => {
   }, [warning]);
 
   return (
-    <form onSubmit={onSubmitHandler}>
+    <StyledPostForm onSubmit={onSubmitHandler}>
       {warning && <span>{warning}</span>}
       <textarea
         value={enteredText}
         onChange={(e) => setEnteredText(e.target.value)}
       />
       <button>Post</button>
-    </form>
+    </StyledPostForm>
   );
 };
 
