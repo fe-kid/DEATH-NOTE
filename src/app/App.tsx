@@ -7,6 +7,7 @@ import Community from '../pages/Community';
 import Ranking from '../pages/Ranking';
 import Header from '../components/Header';
 import GlobalStyle from '../styles/globalStyle';
+import KillingStart from '../pages/KillingStart';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/killing" component={Killing} />
+        <Route path="/killing-start" component={KillingStart} />
         <Route path="/community" component={Community} />
         <Route path="/ranking" component={Ranking} />
       </Switch>
