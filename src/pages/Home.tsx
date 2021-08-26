@@ -17,19 +17,19 @@ const StyledHome = styled.div`
 const Home = () => {
   return (
     <StyledHome>
-      <Link to="/killing-start">
+      <Link to="/DEATH_NOTE/killing-start">
         <SelectionItem
           text="Do Your Job"
           img="https://www.firstpost.com/wp-content/uploads/2017/08/13245470_1129092717162553_622982228854157952_n-Copy-2.jpg"
         />
       </Link>
-      <Link to="/community">
+      <Link to="/DEATH_NOTE/community">
         <SelectionItem
           text="Community"
           img="https://c4.wallpaperflare.com/wallpaper/791/198/515/death-note-kira-1920x1200-anime-death-note-hd-art-wallpaper-preview.jpg"
         />
       </Link>
-      <Link to="/ranking">
+      <Link to="/DEATH_NOTE/ranking">
         {' '}
         <SelectionItem
           text="Ranking"

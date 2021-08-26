@@ -86,7 +86,7 @@ const Header = () => {
   return (
     <>
       <StyledHeader>
-        <Link to="/">
+        <Link to="/DEATH_NOTE">
           <h1>DEATH NOTE</h1>
         </Link>
         {!authUser && <button onClick={signInHandler}>Sign In</button>}
