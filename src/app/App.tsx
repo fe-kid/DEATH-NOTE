@@ -8,6 +8,7 @@ import Ranking from '../pages/Ranking';
 import Header from '../components/Header';
 import GlobalStyle from '../styles/globalStyle';
 import KillingStart from '../pages/KillingStart';
+import KillingScore from '../pages/KillingScore';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/" exact component={Home} />
         <Route path="/killing" component={Killing} />
         <Route path="/killing-start" component={KillingStart} />
+        <Route path="/killing-score" component={KillingScore} />
         <Route path="/community" component={Community} />
         <Route path="/ranking" component={Ranking} />
       </Switch>
