@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/DEATH_NOTE/static/js/main.e3b75192.chunk.js",
+    "main.js.map": "/DEATH_NOTE/static/js/main.e3b75192.chunk.js.map",
+    "runtime-main.js": "/DEATH_NOTE/static/js/runtime-main.c2bfa68e.js",
+    "runtime-main.js.map": "/DEATH_NOTE/static/js/runtime-main.c2bfa68e.js.map",
+    "static/js/2.877e14e2.chunk.js": "/DEATH_NOTE/static/js/2.877e14e2.chunk.js",
+    "static/js/2.877e14e2.chunk.js.map": "/DEATH_NOTE/static/js/2.877e14e2.chunk.js.map",
+    "index.html": "/DEATH_NOTE/index.html",
+    "static/js/2.877e14e2.chunk.js.LICENSE.txt": "/DEATH_NOTE/static/js/2.877e14e2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c2bfa68e.js",
+    "static/js/2.877e14e2.chunk.js",
+    "static/js/main.e3b75192.chunk.js"
+  ]
+}
