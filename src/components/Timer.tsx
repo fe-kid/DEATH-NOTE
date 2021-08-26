@@ -1,9 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const StyledTimer = styled.h1`
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+`;
 
 const Timer: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
-  const [seconds, setSeconds] = useState(10);
+  const [seconds, setSeconds] = useState(60);
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
@@ -22,7 +31,7 @@ const Timer: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
     };
   }, [seconds]);
 
-  return <h1>{seconds}</h1>;
+  return <StyledTimer>{seconds}</StyledTimer>;
 };
 
 export default Timer;
