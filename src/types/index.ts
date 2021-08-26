@@ -17,3 +17,11 @@ export interface CurrentCriminal {
   name: string;
   img: string;
 }
+
+export interface Post {
+  id: string;
+  writtenUserName: string;
+  writtenUserId: string;
+  writtenDate: string;
+  content: string;
+}

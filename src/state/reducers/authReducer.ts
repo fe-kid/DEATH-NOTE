@@ -19,6 +19,18 @@ export const authReducer = (
       return { ...state, killedCount: action.payload } as authUser;
     case ActionType.UPDATE_VICTIMS:
       return { ...state, victims: action.payload } as authUser;
+    case ActionType.ADD_USER_POSTING:
+      return {
+        ...state,
+        postings: [...state!.postings, action.payload],
+      } as authUser;
+    case ActionType.DELETE_USER_POSTING:
+      return {
+        ...state,
+        postings: state!.postings.filter((postId) => {
+          return postId !== action.payload;
+        }),
+      } as authUser;
     default:
       return state;
   }

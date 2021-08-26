@@ -23,14 +23,14 @@ const StyledRanking = styled.div`
 const Ranking = () => {
   const { ranking, auth } = useTypedSelector((state) => state);
   const { loading, error, data: users } = ranking;
-  const { FetchRanking } = useActions();
+  const { fetchRanking } = useActions();
 
   useEffect(() => {
-    FetchRanking();
+    fetchRanking();
   }, []);
 
   useEffect(() => {
-    FetchRanking();
+    fetchRanking();
   }, [auth]);
 
   return (

@@ -1,4 +1,4 @@
-import { User, Victim } from '../types';
+import { Post, User, Victim } from '../types';
 import { ActionType } from './action-types';
 
 interface SignInAction {
@@ -20,6 +20,16 @@ interface UpdateVictimsAction {
   payload: Victim[];
 }
 
+interface AddUserPostingAction {
+  type: ActionType.ADD_USER_POSTING;
+  payload: string;
+}
+
+interface DeleteUserPostingAction {
+  type: ActionType.DELETE_USER_POSTING;
+  payload: string;
+}
+
 interface FetchRankingAction {
   type: ActionType.FETCH_RANKING;
 }
@@ -33,11 +43,42 @@ interface FetchRankingFailureAction {
   payload: string;
 }
 
+interface FetchCommunityAction {
+  type: ActionType.FETCH_COMMUNITY;
+}
+
+interface FetchCommunitySuccessAction {
+  type: ActionType.FETCH_COMMUNITY_SUCCESS;
+  payload: Post[];
+}
+
+interface FetchCommunityFailureAction {
+  type: ActionType.FETCH_COMMUNITY_FAILURE;
+  payload: string;
+}
+
+interface AddPostAction {
+  type: ActionType.ADD_POST;
+  payload: Post;
+}
+
+interface DeletePostAction {
+  type: ActionType.DELETE_POST;
+  payload: string;
+}
+
 export type Actions =
   | SignInAction
   | SignOutAction
   | UpdateKilledCountAction
   | UpdateVictimsAction
+  | AddUserPostingAction
+  | DeleteUserPostingAction
   | FetchRankingAction
   | FetchRankingSuccessAction
-  | FetchRankingFailureAction;
+  | FetchRankingFailureAction
+  | FetchCommunityAction
+  | FetchCommunitySuccessAction
+  | FetchCommunityFailureAction
+  | AddPostAction
+  | DeletePostAction;

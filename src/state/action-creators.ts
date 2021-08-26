@@ -1,6 +1,6 @@
 import { Dispatch } from 'redux';
 import fb from '../apis/firebase/fb';
-import { User, Victim } from '../types';
+import { Post, User, Victim } from '../types';
 import { ActionType } from './action-types';
 
 const db = fb.firestore();
@@ -88,7 +88,68 @@ export const updateVictims = (id: string, victims: Victim[]) => {
   };
 };
 
-export const FetchRanking = () => {
+export const fetchCommunity = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: ActionType.FETCH_COMMUNITY,
+    });
+
+    try {
+      const res = await db
+        .collection('posts')
+        .orderBy('writtenDate', 'desc')
+        .get();
+      const postList = res.docs.map((doc) => {
+        return { ...(doc.data() as Post), id: doc.id };
+      });
+
+      console.log(
+        res.docs.map((doc) => {
+          return doc.data();
+        })
+      );
+
+      dispatch({
+        type: ActionType.FETCH_COMMUNITY_SUCCESS,
+        payload: postList,
+      });
+    } catch (err) {
+      dispatch({
+        type: ActionType.FETCH_COMMUNITY_FAILURE,
+        payload: err.message,
+      });
+    }
+  };
+};
+
+export const addPost = (username: string, userId: string, content: string) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const postObjForDB = {
+        writtenDate: new Date().toLocaleString(),
+        writtenUserName: username,
+        writtenUserId: userId,
+        content: content,
+      };
+
+      const res = await db.collection('posts').add(postObjForDB);
+
+      const newPostObj = {
+        ...postObjForDB,
+        id: res.id,
+      };
+
+      dispatch({ type: ActionType.ADD_POST, payload: newPostObj });
+
+      dispatch({ type: ActionType.ADD_USER_POSTING, payload: res.id });
+    } catch (err) {
+      // 에러 처리 업데이트 예정
+      console.log(err);
+    }
+  };
+};
+
+export const fetchRanking = () => {
   return async (dispatch: Dispatch) => {
     dispatch({
       type: ActionType.FETCH_RANKING,
@@ -109,7 +170,7 @@ export const FetchRanking = () => {
       });
     } catch (err) {
       dispatch({
-        type: ActionType.FETCH_RANKING_SUCCESS,
+        type: ActionType.FETCH_RANKING_FAILURE,
         payload: err.message,
       });
     }
