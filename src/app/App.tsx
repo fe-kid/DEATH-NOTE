@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../state/store';
 import Home from '../pages/Home';
@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/killing-score" component={KillingScore} />
         <Route path="/community" component={Community} />
         <Route path="/ranking" component={Ranking} />
+        <Redirect to="/" />
       </Switch>
     </Provider>
   );
