@@ -23,7 +23,6 @@ const Timer: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
         setSeconds((prev) => prev - 1);
       }, 1000);
     } else if (seconds <= 0) {
-      console.log(seconds);
       onFinish();
     }
 
