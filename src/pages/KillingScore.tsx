@@ -47,7 +47,9 @@ const KillingScore = () => {
   }, [authUser]);
 
   useEffect(() => {
-    compareDeadlist();
+    if (authUser) {
+      compareDeadlist();
+    }
   }, []);
 
   const compareDeadlist = () => {
