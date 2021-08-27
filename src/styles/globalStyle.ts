@@ -56,14 +56,19 @@ const GlobalStyle = createGlobalStyle`
     user-select: none;
   }
 
+  
   body {
     background-color: #202020;
   }
-
+  
   html,
   body,
   #root {
     height: 100%;
+  }
+
+  input {
+    user-select: initial;
   }
 `;
 

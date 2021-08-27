@@ -20,7 +20,7 @@ const StyledTimer = styled.h1`
 `;
 
 const Timer: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
-  const [seconds, setSeconds] = useState(100);
+  const [seconds, setSeconds] = useState(30);
 
   useEffect(() => {
     let interval: ReturnType<typeof setInterval>;
