@@ -5,12 +5,13 @@ import SelectionItem from '../components/SelectionItem';
 const StyledHome = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding-top: 100px;
+  height: 80vh;
+  max-width: 1000px;
+  margin: 0 auto;
   a {
     text-decoration: none;
-    color: inherit;
   }
 `;
 

@@ -1,24 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import styled from 'styled-components';
+import DisplayedMessage from '../components/DisplayedMessage';
+import PageHeading from '../components/PageHeading';
 import PostForm from '../components/PostForm';
 import PostList from '../components/PostList';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const StyledCommunity = styled.div`
-  color: #fff;
-  & > div > p,
-  h2 {
-    text-align: center;
-    padding: 50px;
-  }
-  h2 {
-    font-size: 50px;
-  }
-  & > div > p {
-    font-size: 30px;
-  }
+  padding-bottom: 50px;
 `;
 
 const Community = () => {
@@ -33,12 +24,14 @@ const Community = () => {
 
   return (
     <StyledCommunity>
-      <h2>커뮤니티</h2>
+      <PageHeading>커뮤니티</PageHeading>
       {auth && <PostForm />}
       <div>
-        {loading && <p>loading...</p>}
-        {error && <p>{error}</p>}
-        {!loading && !posts.length && <p>No post...</p>}
+        {loading && <DisplayedMessage message="Loading..." />}
+        {error && <DisplayedMessage message={error} />}
+        {!loading && !posts.length && (
+          <DisplayedMessage message="게시물이 없습니다..." />
+        )}
         {!loading && posts.length !== 0 && <PostList posts={posts} />}
       </div>
     </StyledCommunity>

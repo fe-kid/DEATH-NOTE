@@ -25,7 +25,7 @@ const randomMurderGenerator = () => {
   ];
   const target = targetArray[randomNumberGenerator(0, targetArray.length)];
 
-  return `무고한 ${quantity}명의 ${target}를 이유 없이 죽였습니다...`;
+  return `무고한 ${target} ${quantity}명을 이유도 없이 죽였습니다...`;
 };
 
 const randomKidnappingGenerator = () => {

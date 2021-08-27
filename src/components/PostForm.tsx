@@ -5,26 +5,42 @@ import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const StyledPostForm = styled.form`
-  margin-bottom: 40px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto 40px;
   & > * {
     display: block;
-    margin: 0 auto;
+    width: 100%;
     box-sizing: border-box;
-    width: 80%;
-    max-width: 600px;
+    border: 3px solid #999;
+  }
+  span {
+    position: absolute;
+    top: 0;
+    background-color: #000;
+    padding: 10px;
+    font-size: 1.4rem;
+    text-align: center;
   }
   textarea {
     resize: none;
     height: 180px;
-    font-size: 24px;
-    padding: 20px;
-    letter-spacing: 2px;
+    font-size: 1.6rem;
+    padding: 10px 20px;
+    letter-spacing: 0.2rem;
     line-height: 1.5;
+    color: #000;
+    &:focus {
+      outline: none;
+    }
   }
   button {
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.4rem;
     padding: 10px 0;
+    color: #000;
+    border-top: none;
   }
 `;
 
@@ -37,7 +53,7 @@ const PostForm = () => {
   const onSubmitHandler = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (enteredText.trim().length < 5) {
-      setWarning('Write at least 5 letters.');
+      setWarning('5글자 이상 적는 성의를 보여주세요.');
       return;
     }
 

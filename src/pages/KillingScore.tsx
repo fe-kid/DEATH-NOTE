@@ -8,17 +8,12 @@ import KillingScoreButtons from '../components/KillingScoreButtons';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { useEffect, useState } from 'react';
 import { useActions } from '../hooks/useActions';
+import PageHeading from '../components/PageHeading';
 
 const StyledKillingScore = styled.div`
   text-align: center;
-  margin: 30px;
-  color: #fff;
-  h1 {
-    font-size: 40px;
-    margin-bottom: 50px;
-  }
   strong {
-    font-size: 30px;
+    font-size: 2rem;
     color: yellow;
     display: block;
     margin-bottom: 10px;
@@ -59,7 +54,7 @@ const KillingScore = () => {
 
   return (
     <StyledKillingScore>
-      <h1>결과</h1>
+      <PageHeading>결과</PageHeading>
       {isNewRecord && <strong>신기록 달성!</strong>}
       <KillingScoreText deads={deads} />
       <KillingScoreVictims deads={deads} />

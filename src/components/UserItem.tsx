@@ -7,32 +7,35 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const StyledUserItem = styled.div<{ isIdSame: boolean }>`
   background-color: ${(props) => (props.isIdSame ? '#888' : '#555')};
-  border: ${(props) => (props.isIdSame ? '5px solid #ddd' : 'none')};
   color: ${(props) => (props.isIdSame ? '#222' : '#ccc')};
+  border: ${(props) => (props.isIdSame ? '5px solid #ddd' : 'none')};
   border-radius: 20px;
-  box-sizing: content-box;
+  display: flex;
   position: relative;
   padding: 20px;
-  margin: 30px 20px;
-  display: flex;
+  margin: 30px auto 0;
+  padding: 30px 20px 20px;
+  width: 80%;
+  max-width: 1000px;
+  cursor: pointer;
   & > span {
     background-color: #222;
     color: #ccc;
     display: block;
     width: 50px;
     height: 50px;
-    font-size: 20px;
+    font-size: 1.5rem;
     text-align: center;
     line-height: 50px;
   }
   & > div {
     margin-left: 30px;
     h3 {
-      font-size: 24px;
+      font-size: 1.4rem;
       margin-bottom: 10px;
     }
     span {
-      font-size: 18px;
+      font-size: 1.1rem;
       display: block;
       margin-bottom: 10px;
     }
@@ -55,17 +58,16 @@ const UserItem: React.FC<{ user: User; idx: number }> = ({ user, idx }) => {
   }, [authState]);
 
   return (
-    <StyledUserItem isIdSame={isIdSame}>
+    <StyledUserItem isIdSame={isIdSame} onClick={toggleShowVictimHandler}>
       <span>{idx}</span>
       <div>
         <h3>{`이름 : ${user.username}`}</h3>
         <span>{`최고 점수 : ${user.killedCount}`}</span>
-        <span
-          onMouseOver={toggleShowVictimHandler}
-          onMouseLeave={toggleShowVictimHandler}
-        >{`응징한 범죄자 : ${user.victims.length}`}</span>
+        <span>{`응징한 범죄자 : ${user.victims.length}`}</span>
       </div>
-      {showVictims && <VictimList victims={user.victims} />}
+      {showVictims && (
+        <VictimList victims={user.victims} username={user.username} />
+      )}
     </StyledUserItem>
   );
 };

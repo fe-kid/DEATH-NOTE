@@ -11,15 +11,12 @@ import Timer from '../components/Timer';
 import { useHistory } from 'react-router-dom';
 
 const StyledKilling = styled.div`
-  position: absolute;
-  top: 80px;
-  bottom: 0;
-  left: 0;
-  right: 0;
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: space-around;
   align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 `;
 
 const Killing = () => {
@@ -38,6 +35,7 @@ const Killing = () => {
   const onSubmitHandler = (e: FormEvent) => {
     e.preventDefault();
 
+    if (enteredText.length === 0) return;
     if (currentCriminal && currentCriminal.name === enteredText) {
       addDeadHandler({
         name: currentCriminal.name,
@@ -56,6 +54,7 @@ const Killing = () => {
     setCurrentCriminal(criminal);
     const crime = createRandomCrime();
     setCrime(crime);
+    setEnteredText('');
   };
 
   const addDeadHandler = (dead: Victim) => {
@@ -94,6 +93,12 @@ const Killing = () => {
       });
     }
   }, [isFinished]);
+
+  window.onkeyup = (e) => {
+    if (e.key === 'Escape') {
+      setCriminalHandler();
+    }
+  };
 
   return (
     <StyledKilling>

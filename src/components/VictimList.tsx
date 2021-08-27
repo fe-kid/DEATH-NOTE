@@ -4,7 +4,6 @@ import styled from 'styled-components';
 
 const StyledVictimList = styled.ul`
   background-color: #555;
-  color: #fff;
   padding: 10px;
   text-align: center;
   border-radius: 20px;
@@ -13,24 +12,28 @@ const StyledVictimList = styled.ul`
   top: 100%;
   z-index: 100;
   h3 {
-    font-size: 20px;
+    font-size: 1.5rem;
+    margin: 20px 0;
   }
   div {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     p {
-      font-size: 20px;
+      font-size: 1.2rem;
       color: #000;
       padding: 30px;
     }
   }
 `;
 
-const VictimList: React.FC<{ victims: Victim[] }> = ({ victims }) => {
+const VictimList: React.FC<{ victims: Victim[]; username: string }> = ({
+  victims,
+  username,
+}) => {
   return (
     <StyledVictimList>
-      <h3>이 키라가 응징한 범죄자</h3>
+      <h3>{username} 키라가 응징한 범죄자</h3>
       <div>
         {victims.length === 0 && <p>아직 활동을 시작하지 않았습니다.</p>}
         {victims.map((victim) => {

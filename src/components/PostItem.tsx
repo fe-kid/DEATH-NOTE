@@ -14,23 +14,22 @@ const StyledPostItem = styled.div`
   background-color: #333;
   span {
     display: block;
-    font-size: 26px;
+    font-size: 1.5rem;
     margin-left: 5px;
   }
   p {
     background-color: #222;
-    color: #fff;
     word-wrap: break-word;
-    font-size: 20px;
+    font-size: 1.2rem;
     letter-spacing: 2px;
-    line-break: 1.4;
+    line-height: 1.5;
     margin-top: 20px;
     padding: 20px;
   }
   button {
-    font-size: 24px;
-    font-family: monospace;
-    color: #fff;
+    font-size: 1rem;
+    font-family: 'Special Elite';
+    padding-top: 4px;
     background: none;
     border: 2px solid #fff;
     cursor: pointer;

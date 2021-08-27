@@ -2,18 +2,17 @@ import styled from 'styled-components';
 
 const StyledHowToKill = styled.div`
   background-color: #444;
-  color: #fff;
   margin: 50px;
   padding: 30px;
   h1 {
-    font-size: 40px;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 50px;
   }
   ul {
     padding: 0 30px;
     li {
-      font-size: 24px;
+      font-size: 1.5rem;
       margin-bottom: 20px;
       text-shadow: 1px 2px 5px rgba(200, 200, 200, 0.2);
     }
@@ -33,7 +32,7 @@ const HowToKill = () => {
         </li>
         <li>- 잘못된 이름을 적으면 2초간 화면이 가려집니다.</li>
         <li>
-          - 단 30초가 주어집니다. 얼마나 많은 범죄자를 처단할 수 있는 지 봅시다.
+          - 단 30초가 주어집니다. 얼마나 많은 범죄자를 처단할 수 있는지 봅시다.
         </li>
       </ul>
     </StyledHowToKill>

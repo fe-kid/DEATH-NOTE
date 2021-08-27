@@ -1,23 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from 'react';
 import UserList from '../components/UserList';
-import styled from 'styled-components';
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import PageHeading from '../components/PageHeading';
+import DisplayedMessage from '../components/DisplayedMessage';
+import styled from 'styled-components';
 
 const StyledRanking = styled.div`
-  color: #fff;
-  h2,
-  p {
-    padding: 50px;
-    text-align: center;
-  }
-  h2 {
-    font-size: 50px;
-  }
-  p {
-    font-size: 30px;
-  }
+  padding-bottom: 50px;
 `;
 
 const Ranking = () => {
@@ -35,10 +26,12 @@ const Ranking = () => {
 
   return (
     <StyledRanking>
-      <h2>Ranking</h2>
-      {loading && <p>loading...</p>}
-      {error && <p>{error}</p>}
-      {!loading && !users.length && <p>No user...</p>}
+      <PageHeading>랭킹</PageHeading>
+      {loading && <DisplayedMessage message="Loading..." />}
+      {error && <DisplayedMessage message={error} />}
+      {!loading && !users.length && (
+        <DisplayedMessage message="사용자가 없습니다..." />
+      )}
       {!loading && users.length !== 0 && <UserList users={users} />}
     </StyledRanking>
   );

@@ -3,10 +3,10 @@ import { Victim } from '../types';
 
 const StyledKillingScoreText = styled.div`
   p {
-    font-size: 30px;
+    font-size: 1.9rem;
     margin-bottom: 40px;
     span {
-      font-size: 24px;
+      font-size: 1.8rem;
       margin-bottom: 5px;
       display: block;
     }

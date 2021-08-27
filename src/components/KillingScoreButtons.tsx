@@ -1,20 +1,10 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import LinkButton from './LinkButton';
 
 const StyledKillingScoreButtons = styled.div`
   display: flex;
   justify-content: center;
-  a {
-    padding: 10px 20px;
-    margin: 30px;
-    font-size: 20px;
-    text-decoration: none;
-    background-color: #000;
-    color: #fff;
-    border-radius: 10px;
-    border: 2px solid #fff;
-  }
 `;
 
 const KillingScoreButtons = () => {
@@ -22,8 +12,10 @@ const KillingScoreButtons = () => {
 
   return (
     <StyledKillingScoreButtons>
-      <Link to="/DEATH-NOTE/killing-start">재시도</Link>
-      {authUser && <Link to="/DEATH-NOTE/ranking">랭킹 보기</Link>}
+      <LinkButton href="/DEATH-NOTE/killing-start">재시도</LinkButton>
+      {authUser && (
+        <LinkButton href="/DEATH-NOTE/ranking">랭킹 보기</LinkButton>
+      )}
     </StyledKillingScoreButtons>
   );
 };

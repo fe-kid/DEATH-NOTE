@@ -4,16 +4,17 @@ import DeadItem from './DeadItem';
 
 const StyledDeadList = styled.ul`
   border: 3px solid #aaa;
-  width: 80%;
-  height: 100px;
-  margin: 20px 0 0;
+  box-sizing: border-box;
+  width: 90%;
+  height: 80px;
+  margin: 20px 0 10px;
+  padding: 0 10px;
   display: flex;
-  flex-flow: row wrap;
+  flex-wrap: wrap;
   align-items: center;
   overflow: auto;
   p {
-    color: #fff;
-    font-size: 20px;
+    font-size: 1.2rem;
     margin-left: 20px;
   }
 `;

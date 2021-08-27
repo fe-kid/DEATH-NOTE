@@ -5,10 +5,11 @@ import styled from 'styled-components';
 
 const StyledTimer = styled.h1`
   position: fixed;
-  top: 24px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 50px;
+  font-size: 2rem;
+  color: red;
 `;
 
 const Timer: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {

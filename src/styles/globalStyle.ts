@@ -51,12 +51,12 @@ const GlobalStyle = createGlobalStyle`
   *,
   *::before,
   *::after {
-    font-family: 'Special Elite', serif;
+    font-family: 'Hahmlet', sans-serif;
+    color: #fff;
   }
 
   body {
     background-color: #202020;
-    color: #aaa;
   }
 
   html,

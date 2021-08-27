@@ -1,12 +1,11 @@
-import { ChangeEvent, FormEvent } from 'react';
+import { ChangeEvent, FormEvent, useRef } from 'react';
 import styled from 'styled-components';
 
 const StyledForm = styled.form`
   background-color: #111;
-  width: 80%;
-  height: 100px;
+  width: 90%;
+  height: 80px;
   position: relative;
-  margin: 20px 0;
 
   input {
     background-color: transparent;
@@ -15,8 +14,7 @@ const StyledForm = styled.form`
     height: 100%;
     box-sizing: border-box;
     padding: 20px;
-    color: #fff;
-    font-size: 24px;
+    font-size: 1.4rem;
     border: none;
     outline: none;
   }
@@ -31,9 +29,8 @@ const StyledForm = styled.form`
     }
     background-color: #333;
     border: 2px solid #777;
-    color: #fff;
-    font-size: 20px;
-    padding: 8px 20px;
+    font-size: 1.2rem;
+    padding: 8px 16px;
     cursor: pointer;
   }
 `;
@@ -44,18 +41,35 @@ const KillingForm: React.FC<{
   onSkip: () => void;
   text: string;
 }> = ({ onSubmit, onChange, onSkip, text }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const inputFocusHander = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
   return (
     <StyledForm onSubmit={onSubmit}>
       <input
         placeholder="범죄자의 이름을 적으세요..."
         onChange={onChange}
         value={text}
+        ref={inputRef}
       />
       <div>
-        <button type="button" onClick={onSkip}>
+        <button
+          type="button"
+          onClick={() => {
+            onSkip();
+            inputFocusHander();
+          }}
+        >
           Skip
         </button>
-        <button type="submit">Done</button>
+        <button type="submit" onClick={inputFocusHander}>
+          Done
+        </button>
       </div>
     </StyledForm>
   );

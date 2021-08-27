@@ -2,9 +2,10 @@
 import { useActions } from '../hooks/useActions';
 import { useTypedSelector } from '../hooks/useTypedSelector';
 import { googleSignIn } from '../apis/firebase/fb.auth';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
+import Heading from './Heading';
+import SignButton from './SignButton';
 
 const StyledHeader = styled.header`
   background-color: #333;
@@ -13,45 +14,27 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 0 30px;
   height: 80px;
-  a {
-    color: inherit;
-    text-decoration: none;
-    h1 {
-      font-size: 30px;
-      color: #fff;
-    }
-  }
-  button {
-    background-color: #fff;
-    border: 3px solid #000;
-    border-radius: 30px;
-    width: 100px;
-    padding: 5px 0;
-    font-size: 16px;
-    cursor: pointer;
-  }
   span {
     cursor: pointer;
-    font-size: 24px;
-    color: #fff;
+    font-size: 1.6rem;
   }
   & > div {
     position: relative;
-    width: 240px;
     text-align: center;
+    margin-right: 20px;
     div {
       background-color: #222;
       border-radius: 30px;
       border: 4px solid #555;
       position: absolute;
       top: 40px;
-      width: 100%;
+      right: 0;
+      width: 220px;
       display: flex;
-      justify-content: center;
-      padding: 20px 0;
-      button:first-of-type {
-        margin-right: 20px;
-      }
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 20px 10px;
+      z-index: 100;
     }
   }
 `;
@@ -76,29 +59,28 @@ const Header = () => {
 
     if (user) {
       signIn(user.displayName!, user.email!);
+      toggleSignOut();
     }
   };
 
-  const userClickHandler = () => {
+  const toggleSignOut = () => {
     setShowUserOption((prev) => !prev);
   };
 
   return (
     <>
       <StyledHeader>
-        <Link to="/DEATH-NOTE">
-          <h1>DEATH NOTE</h1>
-        </Link>
-        {!authUser && <button onClick={signInHandler}>Sign In</button>}
+        <Heading />
+        {!authUser && <SignButton onClick={signInHandler}>Sign In</SignButton>}
         {authUser && (
           <div>
-            <span onClick={userClickHandler}>{authUser.username}</span>
+            <span onClick={toggleSignOut}>{authUser.username}</span>
             {showUserOption && (
               <div>
-                <button onClick={signOut}>Sign Out</button>
-                <button onClick={deleteAccount.bind(null, authUser.id)}>
+                <SignButton onClick={signOut}>Sign Out</SignButton>
+                <SignButton onClick={deleteAccount.bind(null, authUser.id)}>
                   Delete Account
-                </button>
+                </SignButton>
               </div>
             )}
           </div>

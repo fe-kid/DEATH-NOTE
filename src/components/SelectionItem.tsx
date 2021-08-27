@@ -10,12 +10,11 @@ const StyledSelectionItem = styled.div<{ img: string }>`
   height: 250px;
   line-height: 250px;
   text-align: center;
-  border-radius: 10%;
+  border-radius: 30px;
   margin: 20px;
   p {
-    font-size: 30px;
-    color: #fff;
-    text-shadow: 2px 5px 5px #000;
+    font-size: 2rem;
+    text-shadow: 3px 8px 5px #000;
   }
 `;
 
