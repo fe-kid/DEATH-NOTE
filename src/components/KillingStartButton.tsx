@@ -15,7 +15,7 @@ const StyledButton = styled(Link)`
   text-decoration: none;
 `;
 const KillingStartButton = () => {
-  return <StyledButton to="/DEATH-NOTE/killing">Start Working</StyledButton>;
+  return <StyledButton to="/DEATH-NOTE/killing">시작하기</StyledButton>;
 };
 
 export default KillingStartButton;

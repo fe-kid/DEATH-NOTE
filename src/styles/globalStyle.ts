@@ -51,7 +51,7 @@ const GlobalStyle = createGlobalStyle`
   *,
   *::before,
   *::after {
-    font-family: 'Special Elite', cursive, serif;
+    font-family: 'Special Elite', serif;
   }
 
   body {

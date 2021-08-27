@@ -47,7 +47,7 @@ const KillingForm: React.FC<{
   return (
     <StyledForm onSubmit={onSubmit}>
       <input
-        placeholder="Write Criminal's Name..."
+        placeholder="범죄자의 이름을 적으세요..."
         onChange={onChange}
         value={text}
       />

@@ -22,8 +22,8 @@ const KillingScoreButtons = () => {
 
   return (
     <StyledKillingScoreButtons>
-      <Link to="/DEATH-NOTE/killing-start">Retry</Link>
-      {authUser && <Link to="/DEATH-NOTE/ranking">Ranking</Link>}
+      <Link to="/DEATH-NOTE/killing-start">재시도</Link>
+      {authUser && <Link to="/DEATH-NOTE/ranking">랭킹 보기</Link>}
     </StyledKillingScoreButtons>
   );
 };

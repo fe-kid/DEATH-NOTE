@@ -14,45 +14,44 @@ const randomMurderGenerator = () => {
   const quantity = randomNumberGenerator(5, 10);
 
   const targetArray = [
-    'farmers',
-    'carpenters',
-    'librarians',
-    'football referees',
-    'software developers',
-    'pharmacists',
-    'firefighters',
+    '역사학자',
+    '중식 요리사',
+    '도서관 사서',
+    '골프 캐디',
+    '데이터 사이언티스트',
+    '한의사',
+    '소방관',
+    '인권변호사',
   ];
   const target = targetArray[randomNumberGenerator(0, targetArray.length)];
 
-  return `killed ${quantity} ${target} for no reason...`;
+  return `무고한 ${quantity}명의 ${target}를 이유 없이 죽였습니다...`;
 };
 
 const randomKidnappingGenerator = () => {
   const age = randomNumberGenerator(4, 12);
 
-  const targetArray = ['youtuber', 'child monk', 'princess', 'genius kid'];
+  const targetArray = ['유튜브 크리에이터', '동자승', '미술 천재'];
   const target = targetArray[randomNumberGenerator(0, targetArray.length)];
 
-  return `kidnapped ${
-    age === 8 || age === 11 ? 'an' : 'a'
-  } ${age}-year-old ${target} to get people's attention...`;
+  return `사람들의 관심을 끌기 위해 ${age}세 ${target}(을)를 납치했습니다...`;
 };
 
 const randomRobberyGenerator = () => {
   const quantity = randomNumberGenerator(5, 50);
 
   const targetArray = [
-    'bank',
-    'jewelry store',
-    'convenience store',
-    'chinese restaurant',
-    'waxing shop',
-    'vegan bakery',
-    'laundry shop',
+    '신한은행',
+    '티파니앤코 매장',
+    '용산 드래곤힐 스파',
+    '양꼬치 전문점',
+    '왁싱샵',
+    '비건 베이커리',
+    '코인노래방',
   ];
   const target = targetArray[randomNumberGenerator(0, targetArray.length)];
 
-  return `robbed a ${target} for ${quantity} million dollars`;
+  return `${target}에서 ${quantity}억원을 훔쳐 달아났습니다...`;
 };
 
 const createRandomCrime = () => {
@@ -69,7 +68,7 @@ const createRandomCrime = () => {
       return randomRobberyGenerator();
 
     default:
-      return 'do something really bad';
+      return '매우 나쁜 일을 저질렀습니다...';
   }
 };
 

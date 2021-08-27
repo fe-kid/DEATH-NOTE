@@ -59,8 +59,8 @@ const KillingScore = () => {
 
   return (
     <StyledKillingScore>
-      <h1>Score</h1>
-      {isNewRecord && <strong>New Record!</strong>}
+      <h1>결과</h1>
+      {isNewRecord && <strong>신기록 달성!</strong>}
       <KillingScoreText deads={deads} />
       <KillingScoreVictims deads={deads} />
       <KillingScoreButtons />

@@ -30,9 +30,9 @@ const StyledVictimList = styled.ul`
 const VictimList: React.FC<{ victims: Victim[] }> = ({ victims }) => {
   return (
     <StyledVictimList>
-      <h3>Criminals punished by this Kira</h3>
+      <h3>이 키라가 응징한 범죄자</h3>
       <div>
-        {victims.length === 0 && <p>Not punished yet</p>}
+        {victims.length === 0 && <p>아직 활동을 시작하지 않았습니다.</p>}
         {victims.map((victim) => {
           return <VictimItem key={victim.name} victim={victim} />;
         })}

@@ -58,12 +58,12 @@ const UserItem: React.FC<{ user: User; idx: number }> = ({ user, idx }) => {
     <StyledUserItem isIdSame={isIdSame}>
       <span>{idx}</span>
       <div>
-        <h3>{`Name : ${user.username}`}</h3>
-        <span>{`Highest Score : ${user.killedCount}`}</span>
+        <h3>{`이름 : ${user.username}`}</h3>
+        <span>{`최고 점수 : ${user.killedCount}`}</span>
         <span
           onMouseOver={toggleShowVictimHandler}
           onMouseLeave={toggleShowVictimHandler}
-        >{`Punished criminals : ${user.victims.length}`}</span>
+        >{`응징한 범죄자 : ${user.victims.length}`}</span>
       </div>
       {showVictims && <VictimList victims={user.victims} />}
     </StyledUserItem>

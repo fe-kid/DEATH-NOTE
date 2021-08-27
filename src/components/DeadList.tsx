@@ -21,7 +21,7 @@ const StyledDeadList = styled.ul`
 const DeadList: React.FC<{ deads: Victim[] }> = ({ deads }) => {
   return (
     <StyledDeadList>
-      {deads.length === 0 && <p>Kill Criminals for Justice...</p>}
+      {deads.length === 0 && <p>아직 처단한 범죄자가 없습니다.</p>}
       {deads.length !== 0 &&
         deads.map(({ name, img }) => {
           return <DeadItem key={name} name={name} img={img} />;

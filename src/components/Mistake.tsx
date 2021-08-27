@@ -19,7 +19,7 @@ const StyledMistake = styled.div`
 const Mistake = () => {
   return (
     <StyledMistake>
-      <span>You just killed an innocent person!</span>
+      <span>방금 무고한 사람을 죽였습니다!</span>
     </StyledMistake>
   );
 };

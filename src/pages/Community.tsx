@@ -33,7 +33,7 @@ const Community = () => {
 
   return (
     <StyledCommunity>
-      <h2>Community</h2>
+      <h2>커뮤니티</h2>
       {auth && <PostForm />}
       <div>
         {loading && <p>loading...</p>}

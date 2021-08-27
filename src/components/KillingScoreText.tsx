@@ -19,16 +19,15 @@ const StyledKillingScoreText = styled.div`
 const KillingScoreText: React.FC<{ deads: Victim[] }> = ({ deads }) => {
   return (
     <StyledKillingScoreText>
-      {!deads.length && <p>You did nothing for justice... Shame on you!</p>}
+      {!deads.length && <p>당신은 정의를 위해 한 일이 아무 것도 없습니다...</p>}
       {deads.length === 1 && (
         <p>
-          You punished <b>1</b> criminal for justice!
+          <b>1</b>명의 범죄자를 처단했습니다!
         </p>
       )}
       {deads.length > 1 && (
         <p>
-          <span>Well done.</span>
-          You punished <b>{deads.length}</b> criminals for justice!
+          정의를 위해 <b>{deads.length}</b>명의 범죄자를 응징했습니다!
         </p>
       )}
     </StyledKillingScoreText>

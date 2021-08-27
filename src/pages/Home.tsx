@@ -19,20 +19,20 @@ const Home = () => {
     <StyledHome>
       <Link to="/DEATH-NOTE/killing-start">
         <SelectionItem
-          text="Do Your Job"
+          text="키라 활동하기"
           img="https://www.firstpost.com/wp-content/uploads/2017/08/13245470_1129092717162553_622982228854157952_n-Copy-2.jpg"
         />
       </Link>
       <Link to="/DEATH-NOTE/community">
         <SelectionItem
-          text="Community"
+          text="커뮤니티"
           img="https://c4.wallpaperflare.com/wallpaper/791/198/515/death-note-kira-1920x1200-anime-death-note-hd-art-wallpaper-preview.jpg"
         />
       </Link>
       <Link to="/DEATH-NOTE/ranking">
         {' '}
         <SelectionItem
-          text="Ranking"
+          text="랭킹"
           img="https://c4.wallpaperflare.com/wallpaper/162/325/134/art-kira-death-note-detective-wallpaper-preview.jpg"
         />
       </Link>

@@ -13,7 +13,7 @@ const StyledKillingScoreVictims = styled.ul`
 const KillingScoreVictims: React.FC<{ deads: Victim[] }> = ({ deads }) => {
   return (
     <StyledKillingScoreVictims>
-      {deads.length === 0 && <p>No criminal punished</p>}
+      {deads.length === 0 && <p>기록이 없습니다.</p>}
       {deads.length !== 0 &&
         deads.map((dead) => {
           return <VictimItem victim={dead} key={dead.name} />;
