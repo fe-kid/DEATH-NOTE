@@ -16,6 +16,15 @@ const StyledSelectionItem = styled.div<{ img: string }>`
     font-size: 2rem;
     text-shadow: 3px 8px 5px #000;
   }
+  @media (max-width: 699px) {
+    margin: 10px;
+    width: 180px;
+    height: 180px;
+    line-height: 180px;
+    p {
+      font-size: 1.5rem;
+    }
+  }
 `;
 
 const SelectionItem: React.FC<{ text: string; img: string }> = ({

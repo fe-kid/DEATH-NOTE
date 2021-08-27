@@ -9,6 +9,11 @@ const StyledLink = styled(Link)`
   border-radius: 10px;
   padding: 20px 30px;
   margin: 30px;
+  @media (max-width: 699px) {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin: 10px;
+  }
 `;
 
 const LinkButton: React.FC<{ href: string }> = ({ href, children }) => {

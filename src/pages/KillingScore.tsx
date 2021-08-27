@@ -18,6 +18,12 @@ const StyledKillingScore = styled.div`
     display: block;
     margin-bottom: 10px;
   }
+
+  @media (max-width: 699px) {
+    strong {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 interface StateType {

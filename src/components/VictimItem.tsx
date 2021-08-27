@@ -8,7 +8,7 @@ const StyledVictimItem = styled.li`
   text-align: center;
   margin: 10px;
   width: 120px;
-  height: 120px;
+  height: auto;
   img {
     border-radius: 50%;
     width: 80px;
@@ -18,6 +18,16 @@ const StyledVictimItem = styled.li`
   span {
     color: red;
     font-size: 1.1rem;
+  }
+  @media (max-width: 699px) {
+    width: 100px;
+    img {
+      width: 65px;
+      height: 65px;
+    }
+    span {
+      font-size: 1rem;
+    }
   }
 `;
 const VictimItem: React.FC<{ victim: Victim }> = ({ victim }) => {

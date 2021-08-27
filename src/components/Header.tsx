@@ -14,14 +14,14 @@ const StyledHeader = styled.header`
   align-items: center;
   padding: 0 30px;
   height: 80px;
-  span {
-    cursor: pointer;
-    font-size: 1.6rem;
-  }
   & > div {
     position: relative;
     text-align: center;
     margin-right: 20px;
+    span {
+      cursor: pointer;
+      font-size: 1.6rem;
+    }
     div {
       background-color: #222;
       border-radius: 30px;
@@ -35,6 +35,21 @@ const StyledHeader = styled.header`
       justify-content: space-around;
       padding: 20px 10px;
       z-index: 100;
+    }
+  }
+  @media (max-width: 699px) {
+    height: 60px;
+    padding: 0 10px;
+    & > div {
+      margin-right: 5px;
+      span {
+        font-size: 1.2rem;
+        display: block;
+        max-width: 100px;
+      }
+      div {
+        padding: 10px 5px;
+      }
     }
   }
 `;
@@ -64,27 +79,25 @@ const Header = () => {
   };
 
   return (
-    <>
-      <StyledHeader>
-        <Heading />
-        {!authUser && <SignButton onClick={signInHandler}>Sign In</SignButton>}
-        {authUser && (
-          <div>
-            <span onClick={() => setShowUserOption((prev) => !prev)}>
-              {authUser.username}
-            </span>
-            {showUserOption && (
-              <div>
-                <SignButton onClick={signOut}>Sign Out</SignButton>
-                <SignButton onClick={deleteAccount.bind(null, authUser.id)}>
-                  Delete Account
-                </SignButton>
-              </div>
-            )}
-          </div>
-        )}
-      </StyledHeader>
-    </>
+    <StyledHeader>
+      <Heading />
+      {!authUser && <SignButton onClick={signInHandler}>Sign In</SignButton>}
+      {authUser && (
+        <div>
+          <span onClick={() => setShowUserOption((prev) => !prev)}>
+            {authUser.username}
+          </span>
+          {showUserOption && (
+            <div>
+              <SignButton onClick={signOut}>Sign Out</SignButton>
+              <SignButton onClick={deleteAccount.bind(null, authUser.id)}>
+                Delete Account
+              </SignButton>
+            </div>
+          )}
+        </div>
+      )}
+    </StyledHeader>
   );
 };
 

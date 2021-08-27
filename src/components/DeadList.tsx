@@ -17,6 +17,16 @@ const StyledDeadList = styled.ul`
     font-size: 1.2rem;
     margin-left: 20px;
   }
+
+  @media (max-width: 699px) {
+    height: 60px;
+    border-width: 2px;
+    margin: 10px 0;
+    p {
+      font-size: 1.1rem;
+      margin-left: 0;
+    }
+  }
 `;
 
 const DeadList: React.FC<{ deads: Victim[] }> = ({ deads }) => {

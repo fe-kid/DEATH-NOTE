@@ -22,21 +22,43 @@ const StyledForm = styled.form`
     position: absolute;
     bottom: 10px;
     right: 10px;
-  }
-  button {
-    &:first-of-type {
-      margin-right: 10px;
+    button {
+      &:first-of-type {
+        margin-right: 10px;
+      }
+      background-color: #333;
+      border: 2px solid #777;
+      font-size: 1.2rem;
+      padding: 8px 16px;
+      cursor: pointer;
     }
-    background-color: #333;
-    border: 2px solid #777;
-    font-size: 1.2rem;
-    padding: 8px 16px;
-    cursor: pointer;
   }
   span {
     position: absolute;
     top: 105%;
     right: 5px;
+  }
+
+  @media (max-width: 699px) {
+    height: 60px;
+    input {
+      font-size: 1rem;
+      padding: 10px;
+    }
+    div {
+      bottom: 4px;
+      right: 4px;
+      button {
+        font-size: 1rem;
+        padding: 4px 8px;
+        &:first-of-type {
+          margin-right: 4px;
+        }
+      }
+    }
+    span {
+      font-size: 0.9rem;
+    }
   }
 `;
 

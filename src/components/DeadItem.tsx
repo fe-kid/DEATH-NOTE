@@ -26,6 +26,12 @@ const StyledDeadItem = styled.li`
     height: 50px;
     border-radius: 50%;
   }
+  @media (max-width: 699px) {
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
 `;
 
 const DeadItem: React.FC<{ name: string; img: string }> = ({ name, img }) => {

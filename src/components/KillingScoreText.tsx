@@ -5,13 +5,19 @@ const StyledKillingScoreText = styled.div`
   p {
     font-size: 1.9rem;
     margin-bottom: 40px;
-    span {
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-      display: block;
-    }
     b {
+      font-size: 2.2rem;
       color: gold;
+    }
+  }
+
+  @media (max-width: 699px) {
+    p {
+      padding: 0 10px;
+      font-size: 1.2rem;
+      b {
+        font-size: 2rem;
+      }
     }
   }
 `;

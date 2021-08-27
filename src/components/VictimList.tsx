@@ -22,7 +22,20 @@ const StyledVictimList = styled.ul`
     p {
       font-size: 1.2rem;
       color: #000;
-      padding: 30px;
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 699px) {
+    h3 {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+    div {
+      p {
+        font-size: 1rem;
+        padding: 10px;
+      }
     }
   }
 `;

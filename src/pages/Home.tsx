@@ -5,7 +5,7 @@ import SelectionItem from '../components/SelectionItem';
 const StyledHome = styled.div`
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   height: 80vh;
   max-width: 1000px;

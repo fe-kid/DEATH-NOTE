@@ -42,6 +42,17 @@ const StyledPostForm = styled.form`
     color: #000;
     border-top: none;
   }
+  @media (max-width: 699px) {
+    width: 90%;
+    textarea {
+      height: 120px;
+      font-size: 1.2rem;
+    }
+    button {
+      font-size: 1.2rem;
+      padding: 5px;
+    }
+  }
 `;
 
 const PostForm = () => {

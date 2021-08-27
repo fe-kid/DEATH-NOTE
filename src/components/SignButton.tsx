@@ -9,6 +9,9 @@ const StyledButton = styled.button`
   width: 100px;
   padding: 5px 0;
   cursor: pointer;
+  @media (max-width: 699px) {
+    padding: 0;
+  }
 `;
 const SignButton: React.FC<{ onClick: () => void }> = ({
   onClick,

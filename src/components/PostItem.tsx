@@ -12,6 +12,7 @@ const StyledPostItem = styled.div`
   width: 80%;
   max-width: 600px;
   background-color: #333;
+  box-sizing: border-box;
   span {
     display: block;
     font-size: 1.5rem;
@@ -36,6 +37,22 @@ const StyledPostItem = styled.div`
     position: absolute;
     top: 24px;
     right: 24px;
+  }
+  @media (max-width: 699px) {
+    width: 90%;
+    padding: 20px 10px 15px;
+    margin-top: 20px;
+    span {
+      font-size: 1rem;
+    }
+    p {
+      padding: 10px;
+      font-size: 1rem;
+    }
+    button {
+      top: 20px;
+      right: 20px;
+    }
   }
 `;
 

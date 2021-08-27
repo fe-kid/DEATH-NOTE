@@ -17,6 +17,21 @@ const StyledHowToKill = styled.div`
       text-shadow: 1px 2px 5px rgba(200, 200, 200, 0.2);
     }
   }
+
+  @media (max-width: 699px) {
+    margin: 20px;
+    padding: 10px;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+    }
+    ul {
+      padding: 0;
+      li {
+        font-size: 1rem;
+      }
+    }
+  }
 `;
 
 const HowToKill = () => {

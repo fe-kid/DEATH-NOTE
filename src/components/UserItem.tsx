@@ -11,16 +11,16 @@ const StyledUserItem = styled.div<{ isIdSame: boolean }>`
   border: ${(props) => (props.isIdSame ? '5px solid #ddd' : 'none')};
   border-radius: 20px;
   display: flex;
+  align-items: center;
   position: relative;
   padding: 20px;
-  margin: 30px auto 0;
+  margin: 20px auto 0;
   padding: 30px 20px 20px;
-  width: 80%;
+  width: 85%;
   max-width: 1000px;
   cursor: pointer;
   & > span {
     background-color: #222;
-    color: #ccc;
     display: block;
     width: 50px;
     height: 50px;
@@ -38,6 +38,26 @@ const StyledUserItem = styled.div<{ isIdSame: boolean }>`
       font-size: 1.1rem;
       display: block;
       margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 699px) {
+    width: 85%;
+    padding: 10px;
+    & > span {
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 1.3rem;
+    }
+    & > div {
+      margin-left: 10px;
+      h3 {
+        font-size: 1.1rem;
+      }
+      span {
+        font-size: 1rem;
+      }
     }
   }
 `;

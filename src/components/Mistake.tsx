@@ -10,9 +10,15 @@ const StyledMistake = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   span {
     font-size: 2rem;
     color: red;
+  }
+  @media (max-width: 699px) {
+    span {
+      font-size: 1.6rem;
+    }
   }
 `;
 

@@ -9,6 +9,14 @@ const StyledHeading = styled(Link)`
     font-family: 'Special Elite';
     letter-spacing: 2px;
     padding-top: 8px;
+    text-align: center;
+  }
+
+  @media (max-width: 699px) {
+    h1 {
+      font-size: 1.4rem;
+      max-width: 120px;
+    }
   }
 `;
 
