@@ -43,7 +43,7 @@ const KillingScore = () => {
 
   const compareDeadlist = () => {
     const newVictimsArray = deads.filter((dead) => {
-      return !authUser!.victims.includes(dead);
+      return !authUser!.victims.find((victim) => victim.name !== dead.name);
     });
 
     if (newVictimsArray.length >= 1) {
