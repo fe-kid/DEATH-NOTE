@@ -33,6 +33,11 @@ const StyledForm = styled.form`
     padding: 8px 16px;
     cursor: pointer;
   }
+  span {
+    position: absolute;
+    top: 105%;
+    right: 5px;
+  }
 `;
 
 const KillingForm: React.FC<{
@@ -71,6 +76,7 @@ const KillingForm: React.FC<{
           Done
         </button>
       </div>
+      <span>ESC : Skip / ENTER : Done</span>
     </StyledForm>
   );
 };
