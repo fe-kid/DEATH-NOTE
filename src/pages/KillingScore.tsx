@@ -39,7 +39,6 @@ const KillingScore = () => {
 
   useEffect(() => {
     if (authUser) {
-      compareDeadlist();
       if (authUser && deads.length > authUser.killedCount) {
         updateKilledCount(authUser.id, deads.length);
         setIsNewRecord(true);
@@ -47,9 +46,16 @@ const KillingScore = () => {
     }
   }, [authUser]);
 
+  useEffect(() => {
+    compareDeadlist();
+  }, []);
+
   const compareDeadlist = () => {
     const newVictimsArray = deads.filter((dead) => {
-      return !authUser!.victims.find((victim) => victim.name !== dead.name);
+      const result = authUser!.victims.findIndex(
+        (victim) => victim.name !== dead.name
+      );
+      return result === -1 ? true : false;
     });
 
     if (newVictimsArray.length >= 1) {
