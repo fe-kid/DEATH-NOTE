@@ -61,7 +61,8 @@ export const signOut = () => {
 export const deleteAccount = (id: string) => {
   return (dispatch: Dispatch) => {
     db.collection('users').doc(id).delete();
-    window.sessionStorage.removeItem('user');
+    window.sessionStorage.removeItem('username');
+    window.sessionStorage.removeItem('email');
     dispatch({ type: ActionType.SIGN_OUT });
   };
 };
