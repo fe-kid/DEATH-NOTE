@@ -31,6 +31,7 @@ const StyledPostForm = styled.form`
     letter-spacing: 0.2rem;
     line-height: 1.5;
     color: #000;
+    background-color: #fff;
     &:focus {
       outline: none;
     }
@@ -41,6 +42,7 @@ const StyledPostForm = styled.form`
     padding: 10px 0;
     color: #000;
     border-top: none;
+    background-color: #fff;
   }
   @media (max-width: 699px) {
     width: 90%;

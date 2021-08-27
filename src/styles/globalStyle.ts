@@ -67,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  input {
+  input, textarea {
     user-select: initial;
   }
 `;
