@@ -52,9 +52,9 @@ const KillingScore = () => {
 
   const compareDeadlist = () => {
     const newVictimsArray = deads.filter((dead) => {
-      const result = authUser!.victims.findIndex(
-        (victim) => victim.name !== dead.name
-      );
+      const result = authUser!.victims.findIndex((victim) => {
+        return victim.name === dead.name;
+      });
       return result === -1 ? true : false;
     });
 
