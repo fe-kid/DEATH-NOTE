@@ -59,12 +59,8 @@ const Header = () => {
 
     if (user) {
       signIn(user.displayName!, user.email!);
-      toggleSignOut();
+      setShowUserOption(false);
     }
-  };
-
-  const toggleSignOut = () => {
-    setShowUserOption((prev) => !prev);
   };
 
   return (
@@ -74,7 +70,9 @@ const Header = () => {
         {!authUser && <SignButton onClick={signInHandler}>Sign In</SignButton>}
         {authUser && (
           <div>
-            <span onClick={toggleSignOut}>{authUser.username}</span>
+            <span onClick={() => setShowUserOption((prev) => !prev)}>
+              {authUser.username}
+            </span>
             {showUserOption && (
               <div>
                 <SignButton onClick={signOut}>Sign Out</SignButton>

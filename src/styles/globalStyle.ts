@@ -53,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
   *::after {
     font-family: 'Hahmlet', sans-serif;
     color: #fff;
+    user-select: none;
   }
 
   body {
