@@ -52,7 +52,8 @@ export const signIn = (username: string, email: string) => {
 
 export const signOut = () => {
   return (dispatch: Dispatch) => {
-    window.sessionStorage.removeItem('user');
+    window.sessionStorage.removeItem('username');
+    window.sessionStorage.removeItem('email');
     dispatch({ type: ActionType.SIGN_OUT });
   };
 };
