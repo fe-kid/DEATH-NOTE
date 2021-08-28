@@ -22,7 +22,7 @@ const StyledHeading = styled(Link)`
 
 const Heading = () => {
   return (
-    <StyledHeading to="/DEATH-NOTE">
+    <StyledHeading to="/">
       <h1>DEATH NOTE</h1>
     </StyledHeading>
   );

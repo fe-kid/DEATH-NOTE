@@ -16,13 +16,13 @@ const App = () => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Route path="/DEATH-NOTE" exact component={Home} />
-        <Route path="/DEATH-NOTE/killing" component={Killing} />
-        <Route path="/DEATH-NOTE/killing-start" component={KillingStart} />
-        <Route path="/DEATH-NOTE/killing-score" component={KillingScore} />
-        <Route path="/DEATH-NOTE/community" component={Community} />
-        <Route path="/DEATH-NOTE/ranking" component={Ranking} />
-        <Redirect to="/DEATH-NOTE" />
+        <Route path="/" exact component={Home} />
+        <Route path="/killing" component={Killing} />
+        <Route path="/killing-start" component={KillingStart} />
+        <Route path="/killing-score" component={KillingScore} />
+        <Route path="/community" component={Community} />
+        <Route path="/ranking" component={Ranking} />
+        <Redirect to="/" />
       </Switch>
     </Provider>
   );

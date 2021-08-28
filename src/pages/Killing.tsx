@@ -88,7 +88,7 @@ const Killing = () => {
   useEffect(() => {
     if (isFinished) {
       history.push({
-        pathname: '/DEATH-NOTE/killing-score',
+        pathname: '/killing-score',
         state: { deads: deads },
       });
     }

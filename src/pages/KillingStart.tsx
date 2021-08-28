@@ -12,7 +12,7 @@ const KillingStart = () => {
   return (
     <StyledKillingStart>
       <HowToKill />
-      <LinkButton href="/DEATH-NOTE/killing">시작하기</LinkButton>
+      <LinkButton href="/killing">시작하기</LinkButton>
     </StyledKillingStart>
   );
 };
