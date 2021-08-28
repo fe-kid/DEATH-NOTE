@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/DEATH-NOTE/static/js/main.5273a212.chunk.js",
-    "main.js.map": "/DEATH-NOTE/static/js/main.5273a212.chunk.js.map",
+    "main.js": "/DEATH-NOTE/static/js/main.298d08da.chunk.js",
+    "main.js.map": "/DEATH-NOTE/static/js/main.298d08da.chunk.js.map",
     "runtime-main.js": "/DEATH-NOTE/static/js/runtime-main.d97535f4.js",
     "runtime-main.js.map": "/DEATH-NOTE/static/js/runtime-main.d97535f4.js.map",
     "static/js/2.844b0e5e.chunk.js": "/DEATH-NOTE/static/js/2.844b0e5e.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.d97535f4.js",
     "static/js/2.844b0e5e.chunk.js",
-    "static/js/main.5273a212.chunk.js"
+    "static/js/main.298d08da.chunk.js"
   ]
 }
