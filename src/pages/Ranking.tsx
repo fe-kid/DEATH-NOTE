@@ -26,7 +26,7 @@ const Ranking = () => {
 
   return (
     <StyledRanking>
-      <PageHeading>랭킹</PageHeading>
+      <PageHeading onClick={fetchRanking}>랭킹</PageHeading>
       {loading && <DisplayedMessage message="Loading..." />}
       {error && <DisplayedMessage message={error} />}
       {!loading && !users.length && (

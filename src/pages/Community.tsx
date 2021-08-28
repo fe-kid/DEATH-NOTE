@@ -24,7 +24,7 @@ const Community = () => {
 
   return (
     <StyledCommunity>
-      <PageHeading>커뮤니티</PageHeading>
+      <PageHeading onClick={fetchCommunity}>커뮤니티</PageHeading>
       {auth && <PostForm />}
       <div>
         {loading && <DisplayedMessage message="Loading..." />}

@@ -12,6 +12,9 @@ import PageHeading from '../components/PageHeading';
 
 const StyledKillingScore = styled.div`
   text-align: center;
+  h2 {
+    cursor: initial;
+  }
   strong {
     font-size: 2rem;
     color: yellow;
@@ -39,18 +42,18 @@ const KillingScore = () => {
 
   useEffect(() => {
     if (authUser) {
+      compareDeadlist();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (authUser) {
       if (authUser && deads.length > authUser.killedCount) {
         updateKilledCount(authUser.id, deads.length);
         setIsNewRecord(true);
       }
     }
   }, [authUser]);
-
-  useEffect(() => {
-    if (authUser) {
-      compareDeadlist();
-    }
-  }, []);
 
   const compareDeadlist = () => {
     const newVictimsArray = deads.filter((dead) => {
@@ -68,7 +71,7 @@ const KillingScore = () => {
 
   return (
     <StyledKillingScore>
-      <PageHeading>결과</PageHeading>
+      <PageHeading onClick={() => {}}>결과</PageHeading>
       {isNewRecord && <strong>신기록 달성!</strong>}
       <KillingScoreText deads={deads} />
       <KillingScoreVictims deads={deads} />

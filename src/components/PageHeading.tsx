@@ -8,6 +8,7 @@ const StyledHeading = styled.h2`
   text-align: center;
   margin: 30px auto;
   border: 2px solid #fff;
+  cursor: pointer;
 
   @media (max-width: 699px) {
     font-size: 1.4rem;
@@ -17,8 +18,11 @@ const StyledHeading = styled.h2`
   }
 `;
 
-const PageHeading: React.FC = ({ children }) => {
-  return <StyledHeading>{children}</StyledHeading>;
+const PageHeading: React.FC<{ onClick: () => void }> = ({
+  onClick,
+  children,
+}) => {
+  return <StyledHeading onClick={onClick}>{children}</StyledHeading>;
 };
 
 export default PageHeading;
