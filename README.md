@@ -1,9 +1,6 @@
 # Death Note App
 
-<div style={display: flex}>
-  <img width="400" alt="screenshot1" src="https://user-images.githubusercontent.com/72863748/131000451-86ae2015-d966-4aeb-a998-8a96e584799f.png">
-  <img width="400" alt="screenshot2" src="https://user-images.githubusercontent.com/72863748/131000458-37399251-c58e-4349-9460-59e9c09e44af.png">
-</div>
+<img width="500" alt="screenshot" src="https://user-images.githubusercontent.com/72863748/131158386-4e06d5f1-a510-4977-9b61-57a70596901e.png">
 
 ### 📓 기획 의도
 
