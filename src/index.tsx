@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './app/App';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="/DEATH-NOTE">
     <App />
   </BrowserRouter>,
   document.getElementById('root')
