@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledCriminalInfo = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -10,8 +10,8 @@ const StyledCriminalInfo = styled.div`
   font-family: 'Spacial Elite';
   img {
     border-radius: 50%;
-    width: 40%;
-    height: 40%;
+    width: 30vh;
+    /* height: 40%; */
   }
   div {
     h2 {
@@ -57,7 +57,7 @@ const StyledCriminalInfo = styled.div`
   @media (max-width: 399px) {
     img {
       width: 30%;
-      height: 30%;
+      /* height: 30%; */
     }
   }
 `;
