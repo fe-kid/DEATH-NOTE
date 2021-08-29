@@ -10,7 +10,7 @@ const StyledVictimList = styled.ul`
   border: 3px solid #777;
   position: absolute;
   top: 100%;
-  z-index: 100;
+  z-index: 2000;
   h3 {
     font-size: 1.5rem;
     margin: 20px 0;

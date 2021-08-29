@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import VictimList from './VictimList';
 import { useState, useEffect } from 'react';
 import { useTypedSelector } from '../hooks/useTypedSelector';
+import { useRef } from 'react';
+import Backdrop from './Backdrop';
 
 const StyledUserItem = styled.div<{ isIdSame: boolean }>`
   background-color: ${(props) => (props.isIdSame ? '#888' : '#555')};
@@ -67,8 +69,12 @@ const UserItem: React.FC<{ user: User; idx: number }> = ({ user, idx }) => {
   const [isIdSame, setIsIdSame] = useState(false);
   const authState = useTypedSelector((state) => state.auth);
 
-  const toggleShowVictimHandler = () => {
-    setShowVictims((prev) => !prev);
+  const openVictimHandler = () => {
+    setShowVictims(true);
+  };
+
+  const closeVictimHandler = () => {
+    setShowVictims(false);
   };
 
   useEffect(() => {
@@ -78,17 +84,20 @@ const UserItem: React.FC<{ user: User; idx: number }> = ({ user, idx }) => {
   }, [authState]);
 
   return (
-    <StyledUserItem isIdSame={isIdSame} onClick={toggleShowVictimHandler}>
-      <span>{idx}</span>
-      <div>
-        <h3>{`이름 : ${user.username}`}</h3>
-        <span>{`최고 점수 : ${user.killedCount}`}</span>
-        <span>{`응징한 범죄자 : ${user.victims.length}`}</span>
-      </div>
-      {showVictims && (
-        <VictimList victims={user.victims} username={user.username} />
-      )}
-    </StyledUserItem>
+    <>
+      {showVictims && <Backdrop onClick={closeVictimHandler} />}
+      <StyledUserItem isIdSame={isIdSame} onClick={openVictimHandler}>
+        <span>{idx}</span>
+        <div>
+          <h3>{`이름 : ${user.username}`}</h3>
+          <span>{`최고 점수 : ${user.killedCount}`}</span>
+          <span>{`응징한 범죄자 : ${user.victims.length}`}</span>
+        </div>
+        {showVictims && (
+          <VictimList victims={user.victims} username={user.username} />
+        )}
+      </StyledUserItem>
+    </>
   );
 };
 
