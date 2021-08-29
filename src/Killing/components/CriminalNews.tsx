@@ -12,10 +12,15 @@ const StyledNews = styled.div`
   margin-top: 20px;
   background-color: rgb(94, 10, 10, 0.5);
   user-select: none;
-  height: 45vh;
+  height: 50vh;
+
+  @media (max-width: 1024px) {
+    height: 35vh;
+  }
   @media (max-width: 699px) {
     padding: 10px;
     margin-top: 10px;
+    height: 30vh;
   }
 `;
 

@@ -10,8 +10,7 @@ const StyledCriminalInfo = styled.div`
   font-family: 'Spacial Elite';
   img {
     border-radius: 50%;
-    width: 30vh;
-    /* height: 40%; */
+    width: 50%;
   }
   div {
     h2 {
@@ -35,6 +34,12 @@ const StyledCriminalInfo = styled.div`
     font-family: 'Hahmlet';
   }
 
+  @media (max-width: 1024px) {
+    img {
+      width: 38%;
+    }
+  }
+
   @media (max-width: 699px) {
     div {
       h2 {
@@ -54,10 +59,17 @@ const StyledCriminalInfo = styled.div`
     }
   }
 
-  @media (max-width: 399px) {
+  @media (max-width: 414px) {
     img {
-      width: 30%;
-      /* height: 30%; */
+      width: 35%;
+    }
+    div {
+      h2 {
+        font-size: 1.1rem;
+      }
+    }
+    p {
+      font-size: 1rem;
     }
   }
 `;
