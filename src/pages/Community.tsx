@@ -10,6 +10,11 @@ import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const StyledCommunity = styled.div`
   padding-bottom: 50px;
+  & > p {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 50px;
+  }
 `;
 
 const Community = () => {
@@ -25,6 +30,7 @@ const Community = () => {
   return (
     <StyledCommunity>
       <PageHeading onClick={fetchCommunity}>커뮤니티</PageHeading>
+      {!auth && <p>로그인 후 게시물을 작성하실 수 있습니다.</p>}
       {auth && <PostForm />}
       <div>
         {loading && <DisplayedMessage message="Loading..." />}

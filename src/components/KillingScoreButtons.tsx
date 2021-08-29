@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { useTypedSelector } from '../hooks/useTypedSelector';
 import LinkButton from './LinkButton';
 
 const StyledKillingScoreButtons = styled.div`
@@ -8,12 +7,10 @@ const StyledKillingScoreButtons = styled.div`
 `;
 
 const KillingScoreButtons = () => {
-  const authUser = useTypedSelector((state) => state.auth);
-
   return (
     <StyledKillingScoreButtons>
       <LinkButton href="/killing-start">재시도</LinkButton>
-      {authUser && <LinkButton href="/ranking">랭킹 보기</LinkButton>}
+      <LinkButton href="/ranking">랭킹 보기</LinkButton>
     </StyledKillingScoreButtons>
   );
 };
