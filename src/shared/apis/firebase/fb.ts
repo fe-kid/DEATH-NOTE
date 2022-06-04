@@ -4,12 +4,12 @@ import 'firebase/auth';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyBVTUjQ_WJeo5_xJ-hDDG8fmJPoupH-Dkg',
-  authDomain: 'death-note-77961.firebaseapp.com',
-  projectId: 'death-note-77961',
-  storageBucket: 'death-note-77961.appspot.com',
-  messagingSenderId: '531988946556',
-  appId: '1:531988946556:web:d970aa680edd089b6a73f9',
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 firebase.initializeApp(firebaseConfig);
